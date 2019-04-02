@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	var n1, n2 uint8
@@ -10,6 +12,12 @@ func main() {
 	r := suma(n1, n2)
 
 	fmt.Println(tipoEdad(r))
+
+	n := [] int8{52, 63, 47, 5, 5, 3, 7, 6, 100, 2, -5}
+	maximo, minimo := maxymin(n)
+
+	fmt.Println("Máximo:", maximo)
+	fmt.Println("Mínimo:", minimo)
 }
 
 func suma(a, b uint8) uint8 {
@@ -30,4 +38,18 @@ func tipoEdad(edad uint8) string {
 	}
 
 	return tipo
+}
+
+func maxymin(numeros [] int8) (max int8, min int8) {
+
+	for _, v := range numeros {
+		if v > max {
+			max = v
+		}
+		if v < min {
+			min = v
+		}
+	}
+
+	return
 }
